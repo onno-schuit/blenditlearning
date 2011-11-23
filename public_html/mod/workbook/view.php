@@ -310,9 +310,42 @@
         $PAGE->navbar->add(get_string('search'));
     }
 
+    // Custom CSS - Onno
+    echo "<h1>TEST</h1>
+        <style>
+                #page-header, #region-pre, #page-footer, iframe, .tabtree {
+                    display: none;
+                }
+
+                #region-main-wrap {
+                    float:none;
+                }
+
+                #region-main {
+                    left:0px;
+                    margin-left:0px;
+                }            
+                .side-pre-only #page-content #region-main {margin-left: 0px;}
+
+            @media print {
+                #page-header, #region-pre, #page-footer, iframe, .tabtree {
+                    display: none;
+                }
+
+                #region-main-wrap {
+                    float:none;
+                }
+
+                #region-main {
+                    left:0px;
+                }
+                
+            } 
+          </style>";
+
+
     $PAGE->set_title($title);
     $PAGE->set_heading($course->fullname);
-
     echo $OUTPUT->header();
 
 /// Check to see if groups are being used here
@@ -444,7 +477,7 @@ if ($showactivity) {
         if ($workbook->requiredentriestoview > 0 && $numentries < $workbook->requiredentriestoview && !has_capability('mod/workbook:manageentries', $context)) {
             $workbook->entrieslefttoview = $workbook->requiredentriestoview - $numentries;
             $strentrieslefttoaddtoview = get_string('entrieslefttoaddtoview', 'workbook', $workbook);
-            echo $OUTPUT->notification($strentrieslefttoaddtoview);
+            //echo $OUTPUT->notification($strentrieslefttoaddtoview);
             $requiredentries_allowed = false;
         }
 
