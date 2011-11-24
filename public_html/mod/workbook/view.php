@@ -313,11 +313,12 @@
     // Custom CSS - Onno
     echo "<style>
             @media print {
-                #page-header, #region-pre, #page-footer, iframe, .tabtree {
+                #page-header, #region-pre, #page-footer, iframe, .tabtree, #navbuttons, .paging {
                     display: none;
                 }
 
                 #page-mod-workbook-view #page-content #region-main {margin-left: 0px;}
+                
                 
             } 
           </style>";
