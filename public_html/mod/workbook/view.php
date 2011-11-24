@@ -311,34 +311,13 @@
     }
 
     // Custom CSS - Onno
-    echo "<h1>TEST</h1>
-        <style>
-                #page-header, #region-pre, #page-footer, iframe, .tabtree {
-                    display: none;
-                }
-
-                #region-main-wrap {
-                    float:none;
-                }
-
-                #region-main {
-                    left:0px;
-                    margin-left:0px;
-                }            
-                .side-pre-only #page-content #region-main {margin-left: 0px;}
-
+    echo "<style>
             @media print {
                 #page-header, #region-pre, #page-footer, iframe, .tabtree {
                     display: none;
                 }
 
-                #region-main-wrap {
-                    float:none;
-                }
-
-                #region-main {
-                    left:0px;
-                }
+                #page-mod-workbook-view #page-content #region-main {margin-left: 0px;}
                 
             } 
           </style>";
@@ -718,6 +697,8 @@ if ($showactivity) {
                     $records = $rm->get_ratings($ratingoptions);
                 }
 
+                // Added print link - Onno
+                echo "<a id='workbook-print' href='#' onclick='window.print();return false;'>Print</a>";
                 workbook_print_template('singletemplate', $records, $workbook, $search, $page);
 
                 echo $OUTPUT->paging_bar($totalcount, $page, $nowperpage, $baseurl);
